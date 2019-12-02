@@ -29,7 +29,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
 
-            android:layout_height="250dp">
+            android:layout_height="220dp">
 
 
 
@@ -60,8 +60,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black_09"
             android:textSize="16sp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
             android:textStyle="bold"
             android:gravity="center_horizontal"
             android:text="在电脑或移动端同时运行apower"
@@ -89,7 +89,7 @@
 
 
         <TextView
-            android:id="@+id/tv_cacheSize"
+            android:id="@+id/tv_moblie"
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
