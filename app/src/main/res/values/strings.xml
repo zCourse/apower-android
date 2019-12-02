@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">apower</string>
+    <string name="action_settings">Settings</string>
+    <string name="clear_cache">清空缓存</string>
+
+    <string name="update">检测更新</string>
+    <string name="share">分享</string>
+    <string name="about">关于</string>
+</resources>
