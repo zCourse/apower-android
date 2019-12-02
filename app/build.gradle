@@ -1,6 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
+
+
+    signingConfigs {
+        debug {
+            storeFile file('../xbk.jks')
+            storePassword "wcxbk@001"
+            keyAlias "mall"
+            keyPassword "wcxbk#001"  //签名密码
+            println("====== signingConfigs.debug ======")
+        }
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -10,13 +22,75 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+
+        flavorDimensions "default"
     }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
     buildTypes {
-        release {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled false
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [channelValue: name]
+    }
+
+    productFlavors {
+        debuger{}
+        qq{}
+        m360{}
+        huawei{}
+        meizu{}
+        pp{}
+        jinli{}
+        baidu{}
+        qq{}
+        m360{}
+        huawei{}
+        meizu{}
+        pp{}
+        jinli{}
+        zskm{}
+        m360d{}
+
+    }
+
+
+    //打包后应用名称
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                if (variant.buildType.name.equals('release')) {//如果是release包
+                    fileName = "xbk_release_v${defaultConfig.versionName}.apk"
+                } else if (variant.buildType.name.equals('debug')) {//如果是debug包
+                    fileName = "xbk_debug_v${defaultConfig.versionName}.apk"
+                }
+                outputFileName = fileName
+            }
+        }
+    }
+
+
+
 }
 
 dependencies {
