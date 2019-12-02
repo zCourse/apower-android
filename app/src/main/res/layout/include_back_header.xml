@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_header_main_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/tv_header_main_content_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="?attr/colorPrimary">
+
+
+        <TextView
+            android:id="@+id/tv_header_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@mipmap/ic_action_previous_item"
+            android:drawablePadding="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/head_small_font" />
+
+        <TextView
+            android:id="@+id/tv_header_content"
+            android:layout_width="wrap_content"
+            android:maxLength="16"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/background"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_header_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/gray_dark"
+            android:textSize="@dimen/head_small_font" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/background"
+        android:layout_below="@+id/tv_header_main_content_relativelayout"
+        android:visibility="gone" />
+
+</RelativeLayout>
